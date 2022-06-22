@@ -32,6 +32,9 @@ def train_stopping_split(
     print(idx.shape, idx)
     print('l: ', labels)
     print('l shape: ', labels.shape)
+
+    print('unique: ', np.unique(labels))
+    print('max labels: ', max(labels))
     # print(idx[labels == i])
     for i in range(max(labels) + 1):
         print(i)
