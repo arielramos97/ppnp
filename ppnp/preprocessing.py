@@ -31,6 +31,7 @@ def train_stopping_split(
     train_idx_split = []
     print(idx.shape, idx)
     print('l: ', labels)
+    print('l shape: ', labels.shape)
     # print(idx[labels == i])
     for i in range(max(labels) + 1):
         print(i)
