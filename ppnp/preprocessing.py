@@ -29,7 +29,11 @@ def train_stopping_split(
         nstopping: int = 500, seed: int = 2413340114) -> Tuple[np.ndarray, np.ndarray]:
     rnd_state = np.random.RandomState(seed)
     train_idx_split = []
+    print(idx.shape, idx)
+    print('l: ', labels)
+    # print(idx[labels == i])
     for i in range(max(labels) + 1):
+        print(i)
         train_idx_split.append(rnd_state.choice(
                 idx[labels == i], ntrain_per_class, replace=False))
     train_idx = np.concatenate(train_idx_split)
