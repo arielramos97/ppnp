@@ -29,17 +29,9 @@ def train_stopping_split(
         nstopping: int = 500, seed: int = 2413340114) -> Tuple[np.ndarray, np.ndarray]:
     rnd_state = np.random.RandomState(seed)
     train_idx_split = []
-    print(idx.shape, idx)
-    print('l: ', labels)
-    print('l shape: ', labels.shape)
 
-    print('unique: ', np.unique(labels))
-    print('max labels: ', max(labels))
     # print(idx[labels == i])
     for i in range(max(labels) + 1):
-        print(i)
-        print(i, idx[labels == i])
-        print('labels == i', np.where(labels == i))
         train_idx_split.append(rnd_state.choice(
                 idx[labels == i], ntrain_per_class, replace=False))
     train_idx = np.concatenate(train_idx_split)
@@ -53,8 +45,7 @@ def gen_splits(
         labels: np.ndarray, idx_split_args: Dict[str, int],
         test: bool = False) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     all_idx = np.arange(len(labels))
-    print('all_idx: ', all_idx.shape)
-    print('gen splits: ', np.unique(labels))
+
     known_idx, unknown_idx = known_unknown_split(
             all_idx, idx_split_args['nknown'])
     _, cnts = np.unique(labels[known_idx], return_counts=True)

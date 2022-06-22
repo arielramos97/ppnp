@@ -18,7 +18,6 @@ def train_model(
         test: bool = False, save_result: bool = False,
         tf_seed: int = None, print_interval: int = 20) -> dict:
     labels = graph.labels
-    print('train_model unique: ', np.unique(labels))
     train_idx, stopping_idx, valtest_idx = gen_splits(
             labels, idx_split_args, test=test)
 
