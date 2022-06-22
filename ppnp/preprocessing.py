@@ -47,6 +47,7 @@ def gen_splits(
         labels: np.ndarray, idx_split_args: Dict[str, int],
         test: bool = False) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     all_idx = np.arange(len(labels))
+    print('all_idx: ', all_idx.shape)
     known_idx, unknown_idx = known_unknown_split(
             all_idx, idx_split_args['nknown'])
     _, cnts = np.unique(labels[known_idx], return_counts=True)
