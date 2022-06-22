@@ -8,6 +8,7 @@ from ..data.sparsegraph import SparseGraph
 from .model import Model
 from ..preprocessing import gen_splits, gen_seeds
 from .earlystopping import EarlyStopping, stopping_args
+import numpy as np
 
 
 def train_model(
@@ -17,7 +18,7 @@ def train_model(
         test: bool = False, save_result: bool = False,
         tf_seed: int = None, print_interval: int = 20) -> dict:
     labels = graph.labels
-    print(labels)
+    print('train_model unique: ', np.unique(labels))
     train_idx, stopping_idx, valtest_idx = gen_splits(
             labels, idx_split_args, test=test)
 
