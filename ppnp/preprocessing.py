@@ -39,6 +39,7 @@ def train_stopping_split(
     for i in range(max(labels) + 1):
         print(i)
         print(i, idx[labels == i])
+        print('labels == i', np.where(labels == i))
         train_idx_split.append(rnd_state.choice(
                 idx[labels == i], ntrain_per_class, replace=False))
     train_idx = np.concatenate(train_idx_split)
